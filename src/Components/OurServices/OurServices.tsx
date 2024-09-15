@@ -8,8 +8,10 @@ import Mechanic from "../../assets/123/Mechanic.png";
 import OilChange from "../../assets/123/OilChange.png";
 import Suspension from "../../assets/123/Suspension.png";
 import WheelAlign from "../../assets/123/WheelAlign.png";
+import { useTranslation } from "react-i18next";
 
 export default function OurServices() {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <Box
@@ -20,23 +22,41 @@ export default function OurServices() {
         }}
         component={"section"}
       >
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: "-120px",
-            right: "-120px",
-            zIndex: "-1",
-          }}
-        >
-          <img
-            src={car}
-            style={{ opacity: "1", width: "406px", height: "406px" }}
-            alt="logo3 image"
-          />
-        </Box>
+        {i18n.language == "en" ? (
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: "-120px",
+              right: "-120px",
+              zIndex: "-1",
+            }}
+          >
+            <img
+              src={car}
+              style={{ opacity: "1", width: "406px", height: "406px" }}
+              alt="logo3 image"
+            />
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: "-120px",
+              left: "-120px",
+              zIndex: "-1",
+            }}
+          >
+            <img
+              src={car}
+              style={{ opacity: "1", width: "406px", height: "406px" }}
+              alt="logo3 image"
+            />
+          </Box>
+        )}
+
         <Container
           sx={{
-            paddingBlock: "20px",
+            paddingBlock: { md: "20px" },
           }}
         >
           <Typography
@@ -50,14 +70,15 @@ export default function OurServices() {
               color: "#6E3AD4",
             }}
           >
-            Our Services
+            {t("Our Services")}
           </Typography>
 
           <Box
             className="row"
             sx={{
               display: "flex",
-              gap: "46px",
+              justifyContent: "space-between",
+              gap: "28px",
               flexWrap: "wrap",
               marginTop: "40px",
             }}
@@ -65,7 +86,10 @@ export default function OurServices() {
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -75,10 +99,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -98,14 +118,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Mechanic
+                  {t("Mechanic")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -114,10 +138,8 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
+                  width: { md: "23%", xs: "45%" },
                   height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -137,14 +159,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Electrical
+                  {t("Electrical")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -153,10 +179,8 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
+                  width: { md: "23%", xs: "45%" },
                   height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -175,14 +199,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Wheel Align
+                  {t("Wheel Align")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -191,10 +219,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -214,14 +238,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Car Wash
+                  {t("Car Wash")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -230,10 +258,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -253,14 +277,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  General Repair
+                  {t("General Repair")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -269,10 +297,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -292,14 +316,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Oil Change
+                  {t("Oil Change")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -308,10 +336,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -330,14 +354,18 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Diagnosis & reporting
+                  {t("Diagnosis & reporting")}
                 </Typography>
               </Box>
             </Box>
             <Box
               className="col"
               sx={{
-                width: "22%",
+                width: { md: "23%", xs: "45%" },
+                height: "116px",
+                border: "1px solid #E3E3E3",
+                borderRadius: "16px",
+                backgroundColor: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -346,10 +374,6 @@ export default function OurServices() {
               <Box
                 component={"div"}
                 sx={{
-                  border: "1px solid #E3E3E3",
-                  width: "240px",
-                  height: "116px",
-                  borderRadius: "16px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -369,7 +393,7 @@ export default function OurServices() {
                     textAlign: "center",
                   }}
                 >
-                  Suspension
+                  {t("Suspension")}
                 </Typography>
               </Box>
             </Box>

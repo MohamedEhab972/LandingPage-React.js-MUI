@@ -14,6 +14,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { makeStyles } from "@mui/styles";
+import { useTranslation } from "react-i18next";
 const useStyles = makeStyles({
   btn: {
     "&:hover": {
@@ -24,6 +25,7 @@ const useStyles = makeStyles({
 });
 
 export default function Footer() {
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <>
@@ -45,18 +47,24 @@ export default function Footer() {
         >
           <Box
             className="row"
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "30px",
+            }}
           >
-            <Box className="col" sx={{ width: "20%" }}>
+            <Box className="col" sx={{ width: { md: "20%", xs: "100%" } }}>
               <Box className="info">
                 <Typography
                   component={"h1"}
                   variant="h3"
                   sx={{
+                    fontSize: { xs: "2rem", md: "15px" },
                     color: "white",
                   }}
                 >
-                  About
+                  {t("about")}
                 </Typography>
                 <Typography
                   component={"p"}
@@ -97,19 +105,26 @@ export default function Footer() {
               </Box>
             </Box>
 
-            <Box className="col" sx={{ width: "20%", paddingLeft: "40px" }}>
+            <Box
+              className="col"
+              sx={{
+                width: { md: "20%", xs: "100%" },
+                paddingLeft: { md: "40px" },
+              }}
+            >
               <Typography
                 component={"p"}
                 sx={{
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "2rem", md: "15px" },
                   lineHeight: "26px",
                   letterSpacing: "-0.1px",
                   color: "#FFFFFF",
-                  opacity: "0.65",
+                  opacity: { xs: "1", md: "0.65" },
+                  mb: "20px",
                 }}
               >
-                Company
+                {t("Company")}
               </Typography>
               <Typography
                 component={"h5"}
@@ -196,15 +211,17 @@ export default function Footer() {
                 Terms & Conditions
               </Typography>
             </Box>
-            <Box className="col" sx={{ width: "50%" }}>
+            <Box className="col" sx={{ width: { md: "50%", xs: "100%" } }}>
               <Typography
                 component={"h1"}
                 variant="h3"
                 sx={{
+                  fontSize: { xs: "2rem", md: "15px" },
+                  mb: "20px",
                   color: "white",
                 }}
               >
-                Contact Information
+                {t("Contact Information")}
               </Typography>
               <Typography
                 component={"h5"}
@@ -219,9 +236,9 @@ export default function Footer() {
                 For inquiries , leave your message and w'll get back to you
                 shortly.<br></br> Automechanic HQ <br></br>Address : 4 Dr
                 Soliman Square Dukii , Giza<br></br> Phone : 01113005090{" "}
-                <br></br>Email : info@automechanic-eg.com<br></br>Linkedin :
-                <Link href="#" color="inherit">
-                  linkedin.com/company/automechanic-eg/
+                <br></br>Email : info@automechanic-eg.com<br></br>
+                <Link href="#" sx={{ wordBreak: "break-word" }} color="inherit">
+                  Linkedin : linkedin.com/company/automechanic-eg/
                 </Link>
               </Typography>
               <Box sx={{ mt: "30px" }}>
@@ -232,6 +249,7 @@ export default function Footer() {
                   sx={{
                     display: "flex",
                     justifyContent: "space-between",
+                    gap: "20px",
                     flexDirection: {
                       xs: "column",
                       md: "row",
@@ -246,7 +264,7 @@ export default function Footer() {
                       display: "flex",
                       backgroundColor: "#FFFFFF",
                       color: "#04113A",
-                      width: "45%",
+                      width: { xs: "100%", md: "45%" },
                       height: "61.16px",
                       borderRadius: "10px",
                     }}
@@ -258,16 +276,16 @@ export default function Footer() {
                       style={{
                         width: "28.42px",
                         height: "34.84px",
-                        marginRight: "10px",
+                        marginInline: "10px",
                       }}
-                      alt="AppleIcon   "
+                      alt="AppleIcon"
                     />
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <Typography
                         component={"p"}
                         sx={{ fontSize: "10px", fontWeight: "700" }}
                       >
-                        Download on the
+                        {t("Download Now")}
                       </Typography>
                       <Typography
                         component={"p"}
@@ -291,7 +309,7 @@ export default function Footer() {
                       display: "flex",
                       backgroundColor: "#FFFFFF",
                       color: "#04113A",
-                      width: "45%",
+                      width: { xs: "100%", md: "45%" },
                       height: "61.16px",
                       borderRadius: "10px",
                     }}
@@ -303,7 +321,7 @@ export default function Footer() {
                       style={{
                         width: "28.42px",
                         height: "34.84px",
-                        marginRight: "10px",
+                        marginInline: "10px",
                       }}
                       alt="AndroidIcon"
                     />
@@ -312,7 +330,7 @@ export default function Footer() {
                         component={"p"}
                         sx={{ fontSize: "10px", fontWeight: "700" }}
                       >
-                        GET IT ON
+                        {t("Download on the")}
                       </Typography>
                       <Typography
                         component={"p"}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useTranslation } from "react-i18next";
+
 const useStyles = makeStyles({
   btn: {
     "&:hover": {
@@ -11,6 +13,7 @@ const useStyles = makeStyles({
 });
 
 export default function ContactUS() {
+  const { t } = useTranslation();
   const classes = useStyles();
   function handelSubmet(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,8 +34,21 @@ export default function ContactUS() {
             paddingBlock: "20px",
           }}
         >
-          <Box className="row" sx={{ display: "flex", gap: "40px" }}>
-            <Box className="col" sx={{ width: "40%" }}>
+          <Box
+            className="row"
+            sx={{
+              display: "flex",
+              gap: "40px",
+              flexWrap: { xs: "wrap", md: "nowrap" },
+            }}
+          >
+            <Box
+              className="col"
+              sx={{
+                width: { xs: "100%", md: "40%" },
+                textAlign: { xs: "center", md: "start" },
+              }}
+            >
               <Typography
                 sx={{
                   fontFamily: " Montserrat",
@@ -43,7 +59,7 @@ export default function ContactUS() {
                   color: "#213F57",
                 }}
               >
-                Get in touch with us
+                {t("Get in touch with us")}
               </Typography>
               <Typography
                 sx={{
@@ -54,73 +70,84 @@ export default function ContactUS() {
                   marginTop: "20px",
                 }}
               >
-                We know that sometimes a personal conversation is the best
-                solution. If you need immediate support or have specific
-                questions, don't hesitate to call or email us. Our dedicated
-                team is available to discuss your concerns and help you further.
+                {t(
+                  "We know that sometimes a personal conversation is the best solution. If you need immediate support or have specific questions, don't hesitate to call or email us. Our dedicated team is available to discuss your concerns and help you further."
+                )}
               </Typography>
             </Box>
 
-            <Box className="col" sx={{ width: "60%", marginLeft: "30px" }}>
+            <Box
+              className="col"
+              sx={{
+                width: { xs: "100%", md: "60%" },
+                marginLeft: { md: "30px" },
+              }}
+            >
               <form
                 onSubmit={(e) => handelSubmet(e)}
                 noValidate
-                style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}
+                style={{
+                  display: "flex",
+                  gap: "32px",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
               >
                 <TextField
-                  label="Full Name"
+                  label={t("Full Name")}
                   variant="outlined"
                   type="text"
                   color="primary"
-                  placeholder="Full Name"
+                  placeholder={t("Full Name")}
                   sx={{
-                    width: "47%",
+                    width: { md: "47%", xs: "100%" },
                     backgroundColor: "white",
                     borderRadius: "8px",
                   }}
                 />
                 <TextField
-                  label="Phone Number"
+                  label={t("Phone Number")}
                   variant="outlined"
                   type="number"
                   color="primary"
-                  placeholder="Phone Number"
+                  placeholder={t("Phone Number")}
                   sx={{
-                    width: "47%",
+                    width: { md: "47%", xs: "100%" },
                     backgroundColor: "white",
                     borderRadius: "8px",
                   }}
                 />
                 <TextField
-                  label="Email"
+                  label={t("Email")}
                   variant="outlined"
                   type="email"
                   color="primary"
-                  placeholder="Email"
+                  placeholder={t("Email")}
                   sx={{
-                    width: "47%",
+                    direction: "ltr",
+                    width: { md: "47%", xs: "100%" },
                     backgroundColor: "white",
                     borderRadius: "8px",
                   }}
                 />
                 <TextField
-                  label="Company"
+                  label={t("Company")}
                   variant="outlined"
                   type="text"
                   color="primary"
-                  placeholder="Company"
+                  placeholder={t("Company")}
                   sx={{
-                    width: "47%",
+                    width: { md: "47%", xs: "100%" },
                     backgroundColor: "white",
                     borderRadius: "8px",
                   }}
                 />
                 <TextField
-                  label="Message"
+                  label={t("Message")}
                   variant="outlined"
                   type="text"
                   color="primary"
-                  placeholder="Message"
+                  placeholder={t("Message")}
                   fullWidth
                   multiline
                   rows={4}
@@ -134,7 +161,7 @@ export default function ContactUS() {
                   type="submit"
                   variant="contained"
                   sx={{
-                    ml: "auto",
+                    marginInlineStart: { md: "auto" },
                     width: "281px",
                     height: "48px",
                     borderRadius: "32px",
@@ -150,7 +177,7 @@ export default function ContactUS() {
                       lineHeight: "24px",
                     }}
                   >
-                    Submit
+                    {t("Submit")}
                   </Typography>
                 </Button>
               </form>

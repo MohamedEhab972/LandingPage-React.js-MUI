@@ -1,9 +1,11 @@
 import { Box, Button, Typography } from "@mui/material";
 import backgroundHeader from "../../assets/backgroundHeader.png";
 import iPhoneAr from "../../assets/iPhone.png";
+import iPhoneEn from "../../assets/iPhoneAr.png";
 import AndroidIcon from "../../assets/AndroidIcon.svg";
 import AppleIcon from "../../assets/AppleIcon.svg";
 import { makeStyles } from "@mui/styles";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   btn: {
@@ -15,14 +17,16 @@ const useStyles = makeStyles({
 });
 
 export default function Header() {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <>
       <Box
         component="header"
         sx={{
+          paddingTop:"20px",
           width: "100%",
-          minHeight: "100%",
+          minHeight: "100vh",
           backgroundImage: `url("${backgroundHeader}")`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -40,7 +44,7 @@ export default function Header() {
               xs: "100%",
               md: "50%",
             },
-            height: "100vh",
+            minHeight: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -51,7 +55,7 @@ export default function Header() {
               component={"h1"}
               sx={{
                 fontWeight: "700",
-                fontSize: "48px",
+                fontSize: { xs: "32px", md: "48px" },
                 lineHeight: "26px",
                 letterSpacing: "-0.1px",
                 color: "#FFFFFF",
@@ -64,17 +68,17 @@ export default function Header() {
               component={"h2"}
               sx={{
                 fontWeight: "600",
-                fontSize: "48px",
-                lineHeight: "64px",
+                fontSize: { xs: "32px", md: "48px" },
+                lineHeight: { xs: "32px", md: "64px" },
                 letterSpacing: "-0.1px",
                 color: "#FFFFFF",
               }}
             >
-              your{" "}
+              {t("Your")}{" "}
               <Typography variant="inherit" component={"span"} color="#3BDBC0">
-                #1 car
+                {t("#1 Car")}
               </Typography>
-              <br></br> servicing app
+              <br></br> {t("Servicing App")}
             </Typography>
 
             <Button
@@ -97,13 +101,13 @@ export default function Header() {
                   lineHeight: "24px",
                 }}
               >
-                Get The App
+                {t("Get The App")}
               </Typography>
             </Button>
 
             <Box sx={{ mt: "30px" }}>
               <Typography color="white" sx={{ mb: "10px" }}>
-                Download Now
+                {t("Download Now")}
               </Typography>
               <Box
                 sx={{
@@ -125,7 +129,7 @@ export default function Header() {
                     color: "#04113A",
                     width: {
                       xs: "100%",
-                      md: "210.57px",
+                      md: "215.57px",
                     },
                     height: "61.16px",
                     borderRadius: "10px",
@@ -138,16 +142,16 @@ export default function Header() {
                     style={{
                       width: "28.42px",
                       height: "34.84px",
-                      marginRight: "10px",
+                      marginInline: "10px",
                     }}
-                    alt="AppleIcon   "
+                    alt="AppleIcon"
                   />
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <Typography
                       component={"p"}
                       sx={{ fontSize: "10px", fontWeight: "700" }}
                     >
-                      Download on the
+                      {t("Download on the")}
                     </Typography>
                     <Typography
                       component={"p"}
@@ -173,7 +177,7 @@ export default function Header() {
                     color: "#04113A",
                     width: {
                       xs: "100%",
-                      md: "210.57px",
+                      md: "215.57px",
                     },
                     height: "61.16px",
                     borderRadius: "10px",
@@ -186,7 +190,7 @@ export default function Header() {
                     style={{
                       width: "28.42px",
                       height: "34.84px",
-                      marginRight: "10px",
+                      marginInline: "10px",
                     }}
                     alt="AndroidIcon"
                   />
@@ -195,7 +199,7 @@ export default function Header() {
                       component={"p"}
                       sx={{ fontSize: "10px", fontWeight: "700" }}
                     >
-                      GET IT ON
+                      {t("Download on the")}
                     </Typography>
                     <Typography
                       component={"p"}
@@ -222,21 +226,39 @@ export default function Header() {
             width: "50%",
           }}
         >
-          <Box
-            sx={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-              marginTop: "60px",
-              width: "50%",
-              position: "absolute",
-              top: "130px",
-              right: "3px",
-            }}
-          >
-            <img src={iPhoneAr} alt="Iphone img" />
-          </Box>
+          {i18n.language == "en" ? (
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "block",
+                },
+                marginTop: "60px",
+                width: "50%",
+                position: "absolute",
+                top: "50px",
+                right: "3px",
+              }}
+            >
+              <img src={iPhoneAr} alt="Iphone img" />
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "block",
+                },
+                marginTop: "60px",
+                width: "50%",
+                position: "absolute",
+                top: "50px",
+                left: "3px",
+              }}
+            >
+              <img src={iPhoneEn} alt="Iphone img" />
+            </Box>
+          )}
         </Box>
       </Box>
     </>

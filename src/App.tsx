@@ -8,19 +8,22 @@ import WorkShop from "./Components/WorkShop/WorkShop";
 import OurServices from "./Components/OurServices/OurServices";
 import ContactUS from "./Components/ContactUS/ContactUS";
 import Footer from "./Components/Footer/Footer";
+import LangContextProvider from "./context/LangContext";
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <Header />
-        <WhyChoseUS />
-        <WorkShop />
-        <OurServices />
-        <ContactUS />
-        <Footer />
-      </ThemeProvider>
+      <LangContextProvider>
+        <ThemeProvider theme={theme}>
+          <Navbar />
+          <Header />
+          <WhyChoseUS />
+          <WorkShop />
+          <OurServices />
+          <ContactUS />
+          <Footer />
+        </ThemeProvider>
+      </LangContextProvider>
     </>
   );
 }

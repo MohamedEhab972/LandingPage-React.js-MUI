@@ -4,6 +4,7 @@ import Workshops2 from "../../assets/Workshops2.png";
 import Workshops3 from "../../assets/Workshops3.png";
 import countersBG from "../../assets/countersBG.png";
 import { makeStyles } from "@mui/styles";
+import { useTranslation } from "react-i18next";
 const useStyles = makeStyles({
   btn: {
     "&:hover": {
@@ -13,6 +14,7 @@ const useStyles = makeStyles({
   },
 });
 export default function WorkShop() {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <>
@@ -43,7 +45,7 @@ export default function WorkShop() {
                   color: "#6E3AD4",
                 }}
               >
-                join As A Workshop
+                {t("join As A Workshop")}
               </Typography>
               <Typography
                 sx={{
@@ -57,15 +59,17 @@ export default function WorkShop() {
                   color: "#04113A",
                 }}
               >
-                We bring a wealth of{" "}
+                {t("We bring a wealth of")}{" "}
                 <Typography
                   variant="inherit"
                   sx={{ color: "#3BDBC0" }}
                   component={"span"}
                 >
-                  Experience
+                  {t("Experience")}
                 </Typography>{" "}
-                from<br></br>a wide rang of backgrounds
+                {t("from")}
+                {i18n.language == "en" ? <br></br> : null}
+                {t("a wide rang of backgrounds")}
               </Typography>
               <Typography
                 sx={{
@@ -78,17 +82,26 @@ export default function WorkShop() {
                   color: "#04113A",
                 }}
               >
-                Automechanic connects car owners in Cairo with mechanic services
-                and workshops<br></br> in their locality, with a list of prices
-                and services, and locations available at the touch of a button.
+                {t(
+                  "Automechanic connects car owners in Cairo with mechanic services and workshops"
+                )}
+                <br></br>
+                {t(
+                  "in their locality, with a list of prices and services, and locations available at the touch of a button."
+                )}{" "}
               </Typography>
             </Box>
 
             <Box
               className="row"
-              sx={{ display: "flex", gap: "12px", marginTop: "50px" }}
+              sx={{
+                display: "flex",
+                gap: "12px",
+                marginTop: "50px",
+                flexWrap: { xs: "wrap", md: "nowrap" },
+              }}
             >
-              <Box className="col" sx={{ width: "33.33%" }}>
+              <Box className="col" sx={{ width: { xs: "100%", md: "33.33%" } }}>
                 <Box component={"div"}>
                   <Box
                     sx={{
@@ -120,7 +133,7 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    Workshop name
+                    {t("Workshop name")}
                   </Typography>
                   <Typography
                     sx={{
@@ -131,12 +144,12 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    workshop field
+                    {t("workshop field")}
                   </Typography>
                 </Box>
               </Box>
 
-              <Box className="col" sx={{ width: "33.33%" }}>
+              <Box className="col" sx={{ width: { xs: "100%", md: "33.33%" } }}>
                 <Box component={"div"}>
                   <Box
                     sx={{
@@ -168,7 +181,7 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    Workshop name
+                    {t("Workshop name")}
                   </Typography>
                   <Typography
                     sx={{
@@ -179,11 +192,11 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    workshop field
+                    {t("workshop field")}
                   </Typography>
                 </Box>
               </Box>
-              <Box className="col" sx={{ width: "33.33%" }}>
+              <Box className="col" sx={{ width: { xs: "100%", md: "33.33%" } }}>
                 <Box component={"div"}>
                   <Box
                     sx={{
@@ -214,7 +227,7 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    Workshop name
+                    {t("Workshop name")}
                   </Typography>
                   <Typography
                     sx={{
@@ -225,7 +238,7 @@ export default function WorkShop() {
                       textAlign: "center",
                     }}
                   >
-                    workshop field
+                    {t("workshop field")}
                   </Typography>
                 </Box>
               </Box>
@@ -235,6 +248,7 @@ export default function WorkShop() {
               sx={{
                 marginBlock: "50px",
                 display: "flex",
+                flexDirection: { xs: "column", md: "row" },
                 justifyContent: "space-between",
                 alignItems: "center",
               }}
@@ -250,7 +264,7 @@ export default function WorkShop() {
                   textAlign: "center",
                 }}
               >
-                get the app now and join us as a workshop
+                {t("get the app now and join us as a workshop")}
               </Typography>
               <Button
                 className={classes.btn}
@@ -271,7 +285,7 @@ export default function WorkShop() {
                     lineHeight: "24px",
                   }}
                 >
-                  Get The App
+                  {t("Get The App")}
                 </Typography>
               </Button>
             </Box>
@@ -281,22 +295,32 @@ export default function WorkShop() {
         <Box
           sx={{
             backgroundImage: `url("${countersBG}")`,
-            height: "317px",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "cover",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            minHeight: "317px",
+            padding: "10px",
             display: "flex",
             alignItems: "center",
           }}
         >
           <Container>
-            <Box className="row" sx={{ display: "flex" }}>
-              <Box className="col" sx={{ width: "25%" }}>
+            <Box
+              className="row"
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                gap: { md: "24px", xs: "8px" },
+              }}
+            >
+              <Box className="col" sx={{ width: { xs: "45%", md: "249px" } }}>
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "72px",
+                    fontSize: { xs: "40px", md: "72px" },
                     fontWeight: "600",
-                    lineHeight: "80px",
+                    lineHeight: { xs: "48px", md: "80px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -308,9 +332,11 @@ export default function WorkShop() {
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "24px",
+
+                    fontSize: { xs: "16px", md: "24px" },
                     fontWeight: "400",
-                    lineHeight: "40px",
+
+                    lineHeight: { xs: "24px", md: "40px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -318,16 +344,16 @@ export default function WorkShop() {
                   }}
                   component={"h1"}
                 >
-                  Qualified workshops
+                  {t("Qualified workshops")}
                 </Typography>
               </Box>
-              <Box className="col" sx={{ width: "25%" }}>
+              <Box className="col" sx={{ width: { xs: "45%", md: "249px" } }}>
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "72px",
+                    fontSize: { xs: "40px", md: "72px" },
                     fontWeight: "600",
-                    lineHeight: "80px",
+                    lineHeight: { xs: "48px", md: "80px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -339,9 +365,9 @@ export default function WorkShop() {
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "24px",
+                    fontSize: { xs: "16px", md: "24px" },
                     fontWeight: "400",
-                    lineHeight: "40px",
+                    lineHeight: { xs: "24px", md: "40px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -349,16 +375,16 @@ export default function WorkShop() {
                   }}
                   component={"h1"}
                 >
-                  Cities
+                  {t("Cities")}
                 </Typography>
               </Box>
-              <Box className="col" sx={{ width: "25%" }}>
+              <Box className="col" sx={{ width: { xs: "45%", md: "249px" } }}>
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "72px",
+                    fontSize: { xs: "40px", md: "72px" },
                     fontWeight: "600",
-                    lineHeight: "80px",
+                    lineHeight: { xs: "48px", md: "80px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -370,9 +396,9 @@ export default function WorkShop() {
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "24px",
+                    fontSize: { xs: "16px", md: "24px" },
                     fontWeight: "400",
-                    lineHeight: "40px",
+                    lineHeight: { xs: "24px", md: "40px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -380,16 +406,16 @@ export default function WorkShop() {
                   }}
                   component={"h1"}
                 >
-                  Car Wash centers
+                  {t("Car Wash centers")}
                 </Typography>
               </Box>
-              <Box className="col" sx={{ width: "25%" }}>
+              <Box className="col" sx={{ width: { xs: "45%", md: "249px" } }}>
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "72px",
+                    fontSize: { xs: "40px", md: "72px" },
                     fontWeight: "600",
-                    lineHeight: "80px",
+                    lineHeight: { xs: "48px", md: "80px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -401,9 +427,9 @@ export default function WorkShop() {
                 <Typography
                   sx={{
                     fontFamily: " Montserrat",
-                    fontSize: "24px",
+                    fontSize: { xs: "16px", md: "24px" },
                     fontWeight: "400",
-                    lineHeight: "40px",
+                    lineHeight: { xs: "24px", md: "40px" },
                     letterSpacing: "-0.10000000149011612px",
                     textAlign: "center",
                     color: "white",
@@ -411,7 +437,7 @@ export default function WorkShop() {
                   }}
                   component={"h1"}
                 >
-                  Qualified workshops
+                  {t("Batteries Workshops & Tires")}
                 </Typography>
               </Box>
             </Box>
